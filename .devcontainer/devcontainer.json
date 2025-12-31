@@ -1,0 +1,35 @@
+{
+	"name": "Android Application",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"fwcd.kotlin",
+				"mathiasfrohlich.kotlin",
+				"adelphes.android-cpu-monitor"
+			]
+		}
+	},
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "17",
+			"installGradle": true,
+			"gradleVersion": "latest"
+		},
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true
+		}
+	},
+	"containerEnv": {
+		"ANDROID_HOME": "/usr/local/android-sdk",
+		"PATH": "${PATH}:/usr/local/android-sdk/cmdline-tools/latest/bin:/usr/local/android-sdk/platform-tools"
+	}
+}
